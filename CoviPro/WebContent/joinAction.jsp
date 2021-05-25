@@ -2,16 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %>
-<%request.setCharacterEncoding("UTF-8"); %>
-<!-- 현재 페이지에만 유효한 멤버 자바빈 -->
+<% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="user" class="user.User" scope="page"/>
 <jsp:setProperty name="user" property="userID"/>
 <jsp:setProperty name="user" property="userPW"/>
-
+<jsp:setProperty property="userName" name="user"/>
+<jsp:setProperty name="user" property="userGender"/>
+<jsp:setProperty name="user" property="userEmail"/>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,30 +31,30 @@
 			scr.println(" location.href='main.jsp'");
 			scr.println("</script>");
 		}
-		UserDAO userDao = new UserDAO();
-		int result= userDao.logIn(user.getUserID(), user.getUserPW());
-		if(result ==1){
-			session.setAttribute("uesrID", user.getUserID());// 세션 객체에 관리
+		if(user.getUserID() == null || user.getUserPW() == null || user.getUserName() == null 
+		|| user.getUserGender() == null ||user.getUserEmail() == null){
 			PrintWriter scr = response.getWriter();
-			scr.println("<script>alert('로그인 성공')");
-			scr.println(" location.href='main.jsp'");
-			scr.println("</script>");
-		}else if(result == 0){
-			PrintWriter scr = response.getWriter();
-			scr.println("<script>alert('비밀번호가 일치하지 않습니다.')");
-			scr.println("history.back()");
-			scr.println("</script>");
-		}else if(result == -1){
-			PrintWriter scr = response.getWriter();
-			scr.println("<script>alert('존재하지 않는 아이디 입니다.')");
-			scr.println("history.back()");
-			scr.println("</script>");
-		}else if(result == 2){
-			PrintWriter scr = response.getWriter();
-			scr.println("<script>alert('데이터베이스 오류입니다.')");
-			scr.println("history.back()");
-			scr.println("</script>");
+			scr.print("<script>alert('입력하지 않은 사항이 있습니다.')");
+			scr.print("history.back()");
+			scr.print("</script>");
+		}else{
+			UserDAO userDao = new UserDAO();
+			int result= userDao.join(user);
+			if(result == -1){
+				PrintWriter scr = response.getWriter();
+				scr.println("<script>alert('이미 존재하는 아이디입니다.')");
+				scr.println("history.back()");
+				scr.println("</script>");
+			}
+			else{
+				session.setAttribute("uesrID", user.getUserID());
+				PrintWriter scr = response.getWriter();
+				scr.println("<script>alert('회원가입 완료!')");
+				scr.println("location.href='main.jsp'");
+				scr.println("</script>");
+			}
 		}
 	%>
+
 </body>
 </html>

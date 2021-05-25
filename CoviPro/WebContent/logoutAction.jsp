@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
+	<%
+		session.invalidate();
+	%>
 	<script>
+		alert('로그아웃 되었습니다.');
 		location.href='main.jsp';
 	</script>
 </body>
