@@ -18,7 +18,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	public int logIn(String userID, String userPW) {
+	public int login(String userID, String userPW) {
 		String sql= "SELECT userPW FROM user WHERE userID= ?";
 		try {
 			pstmt=conn.prepareStatement(sql);

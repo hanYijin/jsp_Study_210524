@@ -47,7 +47,7 @@
 				scr.println("</script>");
 			}
 			else{
-				session.setAttribute("uesrID", user.getUserID());
+				session.setAttribute("userID", user.getUserID());
 				PrintWriter scr = response.getWriter();
 				scr.println("<script>alert('회원가입 완료!')");
 				scr.println("location.href='main.jsp'");
