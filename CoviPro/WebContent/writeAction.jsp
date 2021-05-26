@@ -10,11 +10,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
@@ -28,8 +23,7 @@
 			scr.println("<script>alert('로그인을 해주세요.')");
 			scr.println(" location.href='login.jsp'");
 			scr.println("</script>");
-		}
-		else{
+		}else{
 			if(post.getPostTitle() == null || post.getPostContent() == null){
 						PrintWriter scr = response.getWriter();
 						scr.print("<script>alert('입력하지 않은 사항이 있습니다.')");
@@ -40,15 +34,14 @@
 					int result= pd.write(post.getPostTitle(),userID,post.getPostContent());
 					if(result == -1){
 						PrintWriter scr = response.getWriter();
-						scr.println("<script>alert('이미 존재하는 아이디입니다.')");
+						scr.println("<script>alert('글쓰기 실패하였습니다.')");
 						scr.println("history.back()");
 						scr.println("</script>");
 					}
 					else{
-						session.setAttribute("userID", user.getUserID());
 						PrintWriter scr = response.getWriter();
-						scr.println("<script>alert('회원가입 완료!')");
-						scr.println("location.href='main.jsp'");
+						scr.println("<script>alert('글쓰기가 성공적으로 완료!')");
+						scr.println("location.href='post.jsp'");
 						scr.println("</script>");
 					}
 			

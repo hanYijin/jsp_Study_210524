@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
 	    	System.out.println(userID);
 		}
 	%>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm">
   <!-- Brand -->
   	<a class="navbar-brand" href="main.jsp">COVID-19</a>
 
@@ -69,7 +70,7 @@
 		<table class="table table-hover" style="text-align: center; border: 1px solid=#dddddd;" >
 			<thead>
 				<tr>
-					<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기</th>
+					<th colspan="2" style="background-color: #84A4BF; text-align: center;">게시판 글쓰기</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,7 +78,7 @@
 					<td><input type="text" class="form-control" placeholder="글 제목" name="postTitle" maxlegth="45"></td>
 				</tr>
 				<tr>
-					<td><textarea type="text" class="form-control" placeholder="글 제목" name="postTitle" maxlegth="3000" style="height:350px;">글 내용</textarea></td>
+					<td><textarea type="text" class="form-control" placeholder="글 제목" name="postContent" maxlegth="3000" style="height:350px;">글 내용</textarea></td>
 				</tr>
 			</tbody>
 			<tfoot>
