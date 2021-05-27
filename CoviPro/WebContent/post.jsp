@@ -16,6 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
+
 </head>
 <body>
 	<%
@@ -97,8 +98,16 @@
 				<%} %>
 			</tbody>
 		</table>
-		<a href="writer.jsp" class="btn btn-primary pull-right">글쓰기</a>	
+		<!-- 페이지 태그 -->
+		<%if(pageNumber != 1){ %>
+			<a href="post.jsp?pageNumber=<%=pageNumber - 1 %>" class="btn btn-info">이전</a>
+		
+		<% } if(pd.nextPage(pageNumber + 1)){ %>
+			<a href="post.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-info">다음</a>
+		<% } %>
+		
 	</div>
+	<div class="form-row float-right"><a href="writer.jsp" class="btn btn-primary pull-right" style="float: right;">글쓰기</a></div>
 </div>
 
 </body>
