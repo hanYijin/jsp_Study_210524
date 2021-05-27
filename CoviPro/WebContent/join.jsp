@@ -42,7 +42,7 @@
 <div class="container">
 	<div class="col-lg-4"></div>
 	<div class="col-lg-4">
-		<div class="jumbotron" style="padding-top: 20px;">
+		<div class="jumbotron mt-5">
 			<form method="post" action="joinAction.jsp">
 				<h3 Style="text-align: center;">회원가입</h3>
 				<div class="form-group">

@@ -135,5 +135,20 @@ public class PostDAO {
 		}
 		return null;
 	}
+	//글 수정 메소드
+	public int update(int postID, String postTitle, String postContent ) {
+		String sql = "update post set postTitle= ?, postContent= ? where postID= ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, postTitle);
+			pstmt.setString(2, postContent);
+			pstmt.setInt(3, postID);
+		
+			return pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}
 	
 }
