@@ -66,12 +66,33 @@
   
 </nav>
 <!-- <div class="cantainer-fluid"><img src="./res/main.jpg" class="mx-auto d-block"></div>-->
-<div class="img">
+	<div class="img-2">
         <div class="content">
-            <h1>Good Bye!</h1>
-            <h2>COVID! 이겨내자!</h2>
+            <h1>코로나19로 바뀐 일상, 요즘 어떻게 지내세요?</h1>
         </div>
         <div class="img-cover"></div>
     </div>
+	<div class="container">
+		<div class="media border p-3 mt-3">
+			<img src="../res/hobby2.jpg" alt="John Doe"
+				class="mr-3 mt-3 rounded-circle" style="width: 200px;">
+			<div class="media-body mt-3">
+				<h4>
+					Q <small>코로나19 이후 제일 많은 시간을 보내는 활동은 무엇인가요?</small>
+				</h4>
+				<p>Lorem ipsum...</p>
+			</div>
+		</div>
+		<div class="media border p-3 mt-3">
+			<div class="media-body mt-3">
+				<h4>
+					Q <small>코로나19가 종식되면 가장 먼저 무엇을 하고 싶은가요?</small>
+				</h4>
+				<p>Lorem ipsum...</p>
+			</div>
+			<img src="../res/daily.jpg" alt="John Doe"
+				class="ml-3 mt-3 rounded-circle" style="width: 230px;">
+		</div>
+	</div>
 </body>
 </html>
