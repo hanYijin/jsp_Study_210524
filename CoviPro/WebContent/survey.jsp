@@ -11,6 +11,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
+<script type="text/javascript">
+
+    function oneCheckbox(a){
+
+    	var obj = document.getElementsByName("question1");
+
+        for(var i=0; i<obj.length; i++){
+
+            if(obj[i] != a){
+
+                obj[i].checked = false;
+
+            }
+        }
+
+    }
+
+</script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm">
@@ -47,11 +65,11 @@
 				<h3 Style="text-align: center;">코로나19로 바뀐 일상 요즘 어떻게 지내세요?</h3>
 				<div class="form-group mt-5">
 				<p>Q1. 코로나19 이후 제일 많은 시간을 보내는 활동은?</p>
-					<input type="checkbox" name="question1" value="1">영상시청(TV, 유튜브 등)<br>
-					<input type="checkbox" name="question1" value="2">가족과 함께<br>
-					<input type="checkbox" name="question1" value="3">독서<br>
-					<input type="checkbox" name="question1" value="4">홈트레이닝<br>
-					<input type="checkbox" name="question1" value="5">기타
+					<input type="checkbox" name="question1" value="1" onclick="oneCheckbox(this)">영상시청(TV, 유튜브 등)<br>
+					<input type="checkbox" name="question1" value="2" onclick="oneCheckbox(this)">가족과 함께<br>
+					<input type="checkbox" name="question1" value="3" onclick="oneCheckbox(this)">독서<br>
+					<input type="checkbox" name="question1" value="4" onclick="oneCheckbox(this)">홈트레이닝<br>
+					<input type="checkbox" name="question1" value="5" onclick="oneCheckbox(this)">기타
 				</div>
 				<div class="form-group  mt-5">
 				<p>Q2. 코로나19가 종식되면 가장 먼저 무엇을 하고 싶은가요?</p>
