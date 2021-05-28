@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./css/Style.css"/>
+  <link rel="stylesheet" href="./css/style2.css"/>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
@@ -32,6 +32,9 @@
     	</li>
     	<li class="nav-item active">
       		<a class="nav-link" href="post.jsp">게시판</a>
+    	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="survey.jsp">설문조사</a>
     	</li>
     </ul>
 	<!-- 로그인 안될시에 보이는 화면 -->
@@ -55,7 +58,7 @@
   	<li class="nav-item dropdown">
     	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">회원관리</a>
       	<div class="dropdown-menu">
-        	<a class="dropdown-item" href="logoutAction.jsp">로그아웃</a>
+        	<a class="dropdown-item" href="./Action/logoutAction.jsp">로그아웃</a>
       	</div>
     	</li>
   </ul>
@@ -65,7 +68,7 @@
   
 </nav>
 <div class="container">
-	<form method="post" action="writeAction.jsp">
+	<form method="post" action="./Action/writeAction.jsp">
 		<table class="table table-hover" style="text-align: center; border: 1px solid=#dddddd;" >
 			<thead>
 				<tr>

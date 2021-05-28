@@ -14,23 +14,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+  <link rel="stylesheet" href="./css/postStyle.css"/>
 <title>Covid-19 Web 게시판</title>
-<style>
-	nav{background-color:#4F698C;}
-	nav>ul>li>a{
-		color:#B8CCD9;
-		font-weight: bold;
-	}
-	a{
-		color:#435C73;
-		font-weight: bold;
-	}
-	a:hover{color:#6CCED9;}
-	.active {
-    	color: #6CCED9;	
-	}
-</style>
 </head>
 <body>
 	<%
@@ -55,6 +40,9 @@
     	<li class="nav-item active">
       		<a class="nav-link" href="post.jsp">게시판</a>
     	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="survey.jsp">설문조사</a>
+    	</li>
     </ul>
 	<!-- 로그인 안될시에 보이는 화면 -->
     <%
@@ -77,7 +65,7 @@
   	<li class="nav-item dropdown">
     	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">회원관리</a>
       	<div class="dropdown-menu">
-        	<a class="dropdown-item" href="logoutAction.jsp">로그아웃</a>
+        	<a class="dropdown-item" href="./Action/logoutAction.jsp">로그아웃</a>
       	</div>
     	</li>
   </ul>
@@ -107,7 +95,7 @@
 				%>
 				<tr>
 					<td><%=list.get(i).getPostID() %></td>
-					<td><a href="view.jsp?postID=<%=list.get(i).getPostID()%>"><%=list.get(i).getPostTitle().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
+					<td><a href="./view/view.jsp?postID=<%=list.get(i).getPostID()%>"><%=list.get(i).getPostTitle().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
 					<td><%=list.get(i).getUserID() %></td>
 					<td><%=list.get(i).getPostDate().substring(0,10)+" "+list.get(i).getPostDate().substring(11,13)+"시"+" "+list.get(i).getPostDate().substring(14,16)+"분" %></td>
 				</tr>

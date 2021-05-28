@@ -21,7 +21,7 @@
 		if(userID==null){
 			PrintWriter scr = response.getWriter();
 			scr.println("<script>alert('로그인을 해주세요.')");
-			scr.println(" location.href='login.jsp'");
+			scr.println(" location.href='../login.jsp'");
 			scr.println("</script>");
 		}else{
 			if(post.getPostTitle() == null || post.getPostContent() == null){
@@ -41,7 +41,7 @@
 					else{
 						PrintWriter scr = response.getWriter();
 						scr.println("<script>alert('글쓰기가 성공적으로 완료!')");
-						scr.println("location.href='post.jsp'");
+						scr.println("location.href='../post.jsp'");
 						scr.println("</script>");
 					}
 			

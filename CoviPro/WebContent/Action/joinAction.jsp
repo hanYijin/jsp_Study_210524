@@ -29,7 +29,7 @@
 		if(userID!=null){
 			PrintWriter scr = response.getWriter();
 			scr.println("<script>alert('이미 로그인이 되어있습니다.')");
-			scr.println(" location.href='main.jsp'");
+			scr.println(" location.href='../main.jsp'");
 			scr.println("</script>");
 		}
 		if(user.getUserID() == null || user.getUserPW() == null || user.getUserName() == null 
@@ -51,7 +51,7 @@
 				session.setAttribute("userID", user.getUserID());
 				PrintWriter scr = response.getWriter();
 				scr.println("<script>alert('회원가입 완료!')");
-				scr.println("location.href='main.jsp'");
+				scr.println("location.href='../main.jsp'");
 				scr.println("</script>");
 			}
 		}

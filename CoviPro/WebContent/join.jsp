@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./css/Style.css"/>
+  <link rel="stylesheet" href="./css/style2.css"/>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
@@ -24,6 +24,9 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="post.jsp">게시판</a>
+    </li>
+    <li class="nav-item">
+      		<a class="nav-link" href="survey.jsp">설문조사</a>
     </li>
 
     <!-- Dropdown -->
@@ -43,7 +46,7 @@
 	<div class="col-lg-4"></div>
 	<div class="col-lg-4">
 		<div class="jumbotron mt-5">
-			<form method="post" action="joinAction.jsp">
+			<form method="post" action="./Action/joinAction.jsp">
 				<h3 Style="text-align: center;">회원가입</h3>
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
