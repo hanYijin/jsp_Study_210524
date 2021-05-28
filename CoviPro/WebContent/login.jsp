@@ -9,10 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm">
   <!-- Brand -->
   <a class="navbar-brand" href="main.jsp">COVID-19</a>
 
@@ -41,7 +42,7 @@
 <div class="container">
 	<div class="col-lg-4"></div>
 	<div class="col-lg-4">
-		<div class="jumbotron" style="padding-top: 20px;">
+		<div class="jumbotron mt-5" >
 			<form method="post"action="loginAction.jsp">
 				<h3 Style="text-align: center;">로그인</h3>
 				<div class="form-group">

@@ -11,6 +11,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
+<script type="text/javascript">
+
+    function oneCheckbox(a){
+
+    	var obj = document.getElementsByName("question1");
+
+        for(var i=0; i<obj.length; i++){
+
+            if(obj[i] != a){
+
+                obj[i].checked = false;
+
+            }
+        }
+
+    }
+
+</script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm">
@@ -43,31 +61,25 @@
 	<div class="col-lg-4"></div>
 	<div class="col-lg-4">
 		<div class="jumbotron mt-5">
-			<form method="post" action="joinAction.jsp">
-				<h3 Style="text-align: center;">회원가입</h3>
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+			<form method="post" action="surveyAction.jsp">
+				<h3 Style="text-align: center;">코로나19로 바뀐 일상 요즘 어떻게 지내세요?</h3>
+				<div class="form-group mt-5">
+				<p>Q1. 코로나19 이후 제일 많은 시간을 보내는 활동은?</p>
+					<input type="checkbox" name="question1" value="1" onclick="oneCheckbox(this)">영상시청(TV, 유튜브 등)<br>
+					<input type="checkbox" name="question1" value="2" onclick="oneCheckbox(this)">가족과 함께<br>
+					<input type="checkbox" name="question1" value="3" onclick="oneCheckbox(this)">독서<br>
+					<input type="checkbox" name="question1" value="4" onclick="oneCheckbox(this)">홈트레이닝<br>
+					<input type="checkbox" name="question1" value="5" onclick="oneCheckbox(this)">기타
 				</div>
-				<div class="form-group">
-					<input type="password" class="form-control" placeholder="비밀번호" name="userPW" maxlength="20">
+				<div class="form-group  mt-5">
+				<p>Q2. 코로나19가 종식되면 가장 먼저 무엇을 하고 싶은가요?</p>
+					<input type="checkbox" name="question2" value="1">국내여행<br>
+					<input type="checkbox" name="question2" value="2">국외여행<br>
+					<input type="checkbox" name="question2" value="3">지인모임<br>
+					<input type="checkbox" name="question2" value="4">영화, 공연 관람<br>
+					<input type="checkbox" name="question2" value="5">운동
 				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="이름" name="userName" maxlength="20">
-				</div>
-				<div class="form-group" style="text-align: center;">
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-primary">
-							<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
-						</label>
-						<label class="btn btn-primary">
-							<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
-						</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50">
-				</div>
-				<input type="submit" class="btn btn-primary form-control" value="회원가입">
+				<input type="submit" class="btn btn-primary form-control mt-5" value="제출">
 			</form>
 		</div>
 	</div>

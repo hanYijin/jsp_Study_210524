@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +25,14 @@
 
   <!-- Links -->
   	<ul class="navbar-nav">
-  		<li class="nav-item">
+  		<li class="nav-item active">
       		<a class="nav-link" href="main.jsp">메인</a>
     	</li>
-    	<li class="nav-item active">
+    	<li class="nav-item">
       		<a class="nav-link" href="post.jsp">게시판</a>
+    	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="survey.jsp">설문조사</a>
     	</li>
     </ul>
 	<!-- 로그인 안될시에 보이는 화면 -->
@@ -64,28 +65,13 @@
    %>
   
 </nav>
-<div class="container">
-	<form method="post" action="writeAction.jsp">
-		<table class="table table-hover" style="text-align: center; border: 1px solid=#dddddd;" >
-			<thead>
-				<tr>
-					<th colspan="2" style="background-color: #84A4BF; text-align: center;">게시판 글쓰기</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><input type="text" class="form-control" placeholder="글 제목" name="postTitle" maxlegth="45"></td>
-				</tr>
-				<tr>
-					<td><textarea type="text" class="form-control" placeholder="글 제목" name="postContent" maxlegth="3000" style="height:350px;">글 내용</textarea></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<td><input type="submit" class="btn btn-primary pull-right" value="작성완료"></td>
-			</tfoot>		
-		</table>
-	</form>			
-</div>
-
+<!-- <div class="cantainer-fluid"><img src="./res/main.jpg" class="mx-auto d-block"></div>-->
+<div class="img">
+        <div class="content">
+            <h1>Good Bye!</h1>
+            <h2>COVID! 이겨내자!</h2>
+        </div>
+        <div class="img-cover"></div>
+    </div>
 </body>
 </html>

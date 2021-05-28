@@ -35,6 +35,13 @@ public class UserDAO {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally{
+			try{
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
 		}
 		return -2; //데이터베이스 오류
 	}
@@ -52,6 +59,13 @@ public class UserDAO {
 		
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally{
+			try{
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
 		}
 		return -1; // 데이터베이스 오류
 	}
