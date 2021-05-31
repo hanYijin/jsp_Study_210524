@@ -1,3 +1,4 @@
+<%@page import="survey.SurveyDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,10 +66,17 @@
    %>
   
 </nav>
+<%
+	String answer1 = (String)session.getAttribute("answer1");
+	String answer2 = (String)session.getAttribute("answer2");
+	SurveyDAO sd = new SurveyDAO();
+	double total= sd.allCount();
+%>
 <!-- <div class="cantainer-fluid"><img src="./res/main.jpg" class="mx-auto d-block"></div>-->
 	<div class="img-2">
         <div class="content">
             <h1>코로나19로 바뀐 일상, 요즘 어떻게 지내세요?</h1>
+            <h2>설문조사 응답: <%=sd.allCount()%>(명)</h2>
         </div>
         <div class="img-cover"></div>
     </div>
@@ -80,7 +88,9 @@
 				<h4>
 					Q <small>코로나19 이후 제일 많은 시간을 보내는 활동은 무엇인가요?</small>
 				</h4>
-				<p>Lorem ipsum...</p>
+				<p><b>영상시청(TV, 유튜브 등) <% double res1=sd.result(answer1, "question1"); double p1 = Math.round((res1/ total) * 100); out.print(p1 + "%"); %></b></p>
+				<p><b>가족과 함께 <% double res2=sd.result(answer2, "question1"); double p2 = Math.round((res2/ total) * 100); out.print(p2 + "%"); %></b></p>
+				<!--  <p><b>독서 <% double res3=sd.result(answer2, "question1"); double p3 = Math.round((res2/ total) * 100); out.print(p3 + "%"); %></b></p>-->
 			</div>
 		</div>
 		<div class="media border p-3 mt-3">

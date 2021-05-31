@@ -21,13 +21,16 @@
 			userID= (String)session.getAttribute("userID");
 		}
 		String answer1 = (String)request.getParameter("question1");
+		session.setAttribute("answer1", answer1);
 		String answer2 = (String)request.getParameter("question2");
+		session.setAttribute("answer2", answer2);
 		
 		if( answer1 == null || answer2 == null){
-			PrintWriter scr = response.getWriter();
-			scr.print("<script>alert('입력하지 않은 사항이 있습니다.')");
-			scr.print("history.back()");
-			scr.print("</script>");
+			System.out.print("입력안된ㅁ");
+			PrintWriter script = response.getWriter();
+			script.print("<script>alert('작성하지 않은 사항이 있습니다.')</script>");
+			script.print("<script>location.href='../survey.jsp'");
+			script.print("</script>");
 		}else{
 			SurveyDAO surveyDao = new SurveyDAO();
 			String sql ="";

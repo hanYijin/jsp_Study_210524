@@ -21,7 +21,6 @@ public class SurveyDAO {
 		}
 	}
 	public int Submit(String answer, String sql) {
-	//	String sql= "INSERT INTO `covibbs`.`question1` (`answer2`) VALUES ('answer2')";
 		String SQL =sql;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -33,5 +32,31 @@ public class SurveyDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
-	
+	public int allCount() {
+		String sql="select count(*) from question1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	public int result(String answer, String question) {
+		String sql="select count("+answer+") from "+question;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 }
