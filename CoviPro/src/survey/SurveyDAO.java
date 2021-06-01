@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import post.Post;
 import user.DBInfo;
 
 public class SurveyDAO {
@@ -59,4 +60,5 @@ public class SurveyDAO {
 		}
 		return -1;
 	}
+
 }

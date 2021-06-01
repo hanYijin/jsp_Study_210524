@@ -67,42 +67,63 @@
   
 </nav>
 <%
-	String answer1 = (String)session.getAttribute("answer1");
-	String answer2 = (String)session.getAttribute("answer2");
+	//String answer1 = (String)session.getAttribute("answer1");
+	//String answer2 = (String)session.getAttribute("answer2");
 	SurveyDAO sd = new SurveyDAO();
 	double total= sd.allCount();
+	double answer1= sd.result("answer1", "question1");
+	double answer2= sd.result("answer2", "question1");
+	double answer3= sd.result("answer3", "question1");
+	double answer4= sd.result("answer4", "question1");
+	double answer5= sd.result("answer5", "question1");
+	double answer2_1= sd.result("answer1", "question2");
+	double answer2_2= sd.result("answer2", "question2");
+	double answer2_3= sd.result("answer3", "question2");
+	double answer2_4= sd.result("answer4", "question2");
+	double answer2_5= sd.result("answer5", "question2");
 %>
 <!-- <div class="cantainer-fluid"><img src="./res/main.jpg" class="mx-auto d-block"></div>-->
 	<div class="img-2">
         <div class="content">
             <h1>코로나19로 바뀐 일상, 요즘 어떻게 지내세요?</h1>
-            <h2>설문조사 응답: <%=sd.allCount()%>(명)</h2>
         </div>
         <div class="img-cover"></div>
     </div>
 	<div class="container">
+	<p style="color:#5662A6; font-size:24px; font-weight: bold;">현재 응답: <%=sd.allCount()%>(명)</p>
 		<div class="media border p-3 mt-3">
 			<img src="../res/hobby2.jpg" alt="John Doe"
 				class="mr-3 mt-3 rounded-circle" style="width: 200px;">
-			<div class="media-body mt-3">
-				<h4>
-					Q <small>코로나19 이후 제일 많은 시간을 보내는 활동은 무엇인가요?</small>
+			<div class="media-body ml-5">
+				<h4 style="color:#233A59;">
+					Q <small><b>코로나19 이후 제일 많은 시간을 보내는 활동은 무엇인가요?</b></small>
 				</h4>
-				<p><b>영상시청(TV, 유튜브 등) <% double res1=sd.result(answer1, "question1"); double p1 = Math.round((res1/ total) * 100); out.print(p1 + "%"); %></b></p>
-				<p><b>가족과 함께 <% double res2=sd.result(answer2, "question1"); double p2 = Math.round((res2/ total) * 100); out.print(p2 + "%"); %></b></p>
-				<!--  <p><b>독서 <% double res3=sd.result(answer2, "question1"); double p3 = Math.round((res2/ total) * 100); out.print(p3 + "%"); %></b></p>-->
+				<br>
+				<p><b>영상시청(TV, 유튜브 등) <% double p1 = Math.round((answer1/ total) * 100); out.print(p1 + "%"); %></b></p>
+				<p><b>가족과 함께 <% double p2 = Math.round((answer2/ total) * 100); out.print(p2 + "%"); %></b></p>
+				<p><b>독서 <% double p3 = Math.round((answer3/ total) * 100); out.print(p3 + "%"); %></b></p>
+				<p><b>홈트레이닝 <% double p4 = Math.round((answer4/ total) * 100); out.print(p4 + "%"); %></b></p>
+				<p><b>기타 <% double p5 = Math.round((answer5/ total) * 100); out.print(p5 + "%"); %></b></p>
 			</div>
 		</div>
 		<div class="media border p-3 mt-3">
-			<div class="media-body mt-3">
-				<h4>
-					Q <small>코로나19가 종식되면 가장 먼저 무엇을 하고 싶은가요?</small>
+			<div class="media-body ml-5">
+				<h4 style="color:#233A59;">
+					Q <small><b>코로나19가 종식되면 가장 먼저 무엇을 하고 싶은가요?</b></small>
 				</h4>
-				<p>Lorem ipsum...</p>
+				<br>
+				<p><b>국내 여행 <% double p6 = Math.round((answer2_1/ total) * 100); out.print(p6 + "%"); %></b></p>
+				<p><b>해외 여행 <% double p7 = Math.round((answer2_2/ total) * 100); out.print(p7 + "%"); %></b></p>
+				<p><b>지인 모임 <% double p8 = Math.round((answer2_3/ total) * 100); out.print(p8 + "%"); %></b></p>
+				<p><b>영화, 공연 관람 <% double p9 = Math.round((answer2_4/ total) * 100); out.print(p9 + "%"); %></b></p>
+				<p><b>운동 <% double p10 = Math.round((answer2_5/ total) * 100); out.print(p10 + "%"); %></b></p>
 			</div>
 			<img src="../res/daily.jpg" alt="John Doe"
 				class="ml-3 mt-3 rounded-circle" style="width: 230px;">
 		</div>
 	</div>
+	<footer>
+		<div class= "container mt-5"></div>
+	</footer>
 </body>
 </html>
