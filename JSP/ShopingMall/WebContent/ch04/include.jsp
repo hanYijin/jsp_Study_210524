@@ -8,7 +8,9 @@
 </head>
 <body>
 	<h2>include 연습</h2>
-	<% String name= "Han Yijin"; %>
+	<% String name= "Han Yijin"; 
+		session.setAttribute("name", name);
+	%>
 	<%@ include file="top.jsp" %>
 	포함하는 페이지 include.jsp의 내용입니다.
 	<%@ include file="bottom.jsp"%>

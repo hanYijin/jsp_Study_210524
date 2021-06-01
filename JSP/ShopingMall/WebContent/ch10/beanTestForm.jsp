@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
- <hr>
- bottom.jsp입니다
- <% String name= (String)session.getAttribute("name"); %>
- 작성자는 <b><%=name %></b>입니다.
+	<h3>이름을 입력하세요</h3>
+	<form action="beanTestPro.jsp" method="post">
+		name: <input type="text" name="name"><br>
+		<input type="submit" value="입력완료">
+	</form>
 </body>
 </html>

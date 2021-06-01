@@ -9,4 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <error-page><!-- 404 error -->
+  	<error-code>404</error-code>
+  	<location>/error/404code.jsp</location>
+  </error-page>
+  <error-page><!-- 500 error -->
+  	<error-code>500</error-code>
+  	<location>/error/500code.jsp</location>
+  </error-page>
 </web-app>
