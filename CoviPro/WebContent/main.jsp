@@ -19,7 +19,7 @@
 			userID=(String)session.getAttribute("userID");
 		}
 	%>
-	<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm">
   <!-- Brand -->
   	<a class="navbar-brand" href="main.jsp">COVID-19</a>
 

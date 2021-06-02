@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="post.Post" %>
+<%@ page import="post.PostDAO" %>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
@@ -20,6 +22,27 @@
 		if(session.getAttribute("userID")!=null){
 			userID=(String)session.getAttribute("userID");
 		}
+		if(userID==null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>alert('로그인을 하세요.')");
+			script.println(" location.href='login.jsp'</script>");
+		}
+		int postID=0;
+		if(request.getParameter("postID")!= null){
+			postID= Integer.parseInt(request.getParameter("postID"));
+		}
+		if(postID==0){
+			PrintWriter script = response.getWriter();
+			script.println("<script>alert('유효하지 않은 글 입니다.')");
+			script.println(" location.href='post.jsp'</script>");
+		}
+		PostDAO pd= new PostDAO();
+	  	Post post = pd.getPost(postID);
+	  	if(!userID.equals(post.getUserID())){
+	  		PrintWriter script = response.getWriter();
+			script.println("<script>alert('수정 권한이 없습니다.')");
+			script.println(" location.href='post.jsp'</script>");
+	  	}
 	%>
 	<nav class="navbar navbar-expand-sm">
   <!-- Brand -->
@@ -65,26 +88,25 @@
   <%
   	}
    %>
-  
 </nav>
 <div class="container">
-	<form method="post" action="./Action/writeAction.jsp">
+	<form method="post" action="./Action/updateAction.jsp?postID=<%=postID%>">
 		<table class="table table-hover" style="text-align: center; border: 1px solid=#dddddd;" >
 			<thead>
 				<tr>
-					<th colspan="2" style="background-color: #84A4BF; text-align: center;">게시판 글쓰기</th>
+					<th colspan="2" style="background-color: #84A4BF; text-align: center;">게시글 수정</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><input type="text" class="form-control" placeholder="글 제목" name="postTitle" maxlegth="45"></td>
+					<td><input type="text" value="<%=post.getPostTitle() %>" class="form-control" name="postTitle" maxlegth="45"></td>
 				</tr>
 				<tr>
-					<td><textarea type="text" class="form-control" placeholder="글 제목" name="postContent" maxlegth="3000" style="height:350px;">글 내용</textarea></td>
+					<td><textarea type="text" class="form-control" name="postContent" maxlegth="3000" style="height:350px;"><%=post.getPostContent()%></textarea></td>
 				</tr>
 			</tbody>
 			<tfoot>
-				<td><input type="submit" class="btn btn-primary pull-right" value="작성완료"></td>
+				<td><input type="submit" class="btn btn-primary pull-right" value="수정하기"></td>
 			</tfoot>		
 		</table>
 	</form>			

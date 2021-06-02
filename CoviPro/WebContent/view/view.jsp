@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/style2.css"/>
+  <link rel="stylesheet" href="../css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
 </head>
 <body>
@@ -34,17 +34,17 @@
 		}
 		Post post = new PostDAO().getPost(postID);
 	%>
-	<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm">
   <!-- Brand -->
-  	<a class="navbar-brand" href="main.jsp">COVID-19</a>
+  	<a class="navbar-brand" href="../main.jsp">COVID-19</a>
 
   <!-- Links -->
   	<ul class="navbar-nav">
   		<li class="nav-item">
-      		<a class="nav-link" href="main.jsp">메인</a>
+      		<a class="nav-link" href="../main.jsp">메인</a>
     	</li>
     	<li class="nav-item active">
-      		<a class="nav-link" href="post.jsp">게시판</a>
+      		<a class="nav-link" href="../post.jsp">게시판</a>
     	</li>
     	<li class="nav-item">
       		<a class="nav-link" href="../survey.jsp">설문조사</a>
@@ -59,8 +59,8 @@
     	<li class="nav-item dropdown">
       		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">접속하기</a>
       		<div class="dropdown-menu">
-        		<a class="dropdown-item" href="login.jsp">로그인</a>
-        		<a class="dropdown-item" href="join.jsp">회원가입</a>
+        		<a class="dropdown-item" href="../login.jsp">로그인</a>
+        		<a class="dropdown-item" href="../join.jsp">회원가입</a>
       		</div>
     	</li>
   	</ul>
@@ -71,7 +71,7 @@
   	<li class="nav-item dropdown">
     	<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">회원관리</a>
       	<div class="dropdown-menu">
-        	<a class="dropdown-item" href="./Action/logoutAction.jsp">로그아웃</a>
+        	<a class="dropdown-item" href="../Action/logoutAction.jsp">로그아웃</a>
       	</div>
     	</li>
   </ul>
@@ -110,12 +110,12 @@
 			</tbody>
 		</table>
 		<div class="form-row float-right">
-			<a href="post.jsp" class="btn btn-primary mr-2">목록</a>
+			<a href="../post.jsp" class="btn btn-info mr-2">목록</a>
 			<%
 				if (userID != null && userID.equals(post.getUserID())) {
 			%>
-			<a href="update.jsp?postID=<%=postID%>" class="btn btn-primary mr-2">수정</a>
-			<a href="deleteAction.jsp?postID=<%=postID%>" class="btn btn-primary">삭제</a>
+			<a href="../update.jsp?postID=<%=postID%>" class="btn btn btn-warning mr-2">수정</a>
+			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="../Action/deleteAction.jsp?postID=<%=postID%>" class="btn btn-danger">삭제</a>
 			<%
 				}
 			%>
