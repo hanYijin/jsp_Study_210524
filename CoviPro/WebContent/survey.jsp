@@ -9,7 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./css/style2.css"/>
+  <link rel="stylesheet" href="./css/Style.css"/>
 <title>Covid-19 Web 게시판</title>
 <script type="text/javascript">
 
@@ -51,6 +51,9 @@
   	<ul class="navbar-nav">
   		<li class="nav-item active">
       		<a class="nav-link" href="main.jsp">메인</a>
+    	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="vaccineInfo.jsp">백신접종</a>
     	</li>
     	<li class="nav-item">
       		<a class="nav-link" href="post.jsp">게시판</a>

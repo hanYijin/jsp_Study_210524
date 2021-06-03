@@ -1,3 +1,5 @@
+<%@page import="data.Vaccine"%>
+<%@page import="data.VaccineDAO"%>
 <%@page import="post.Post"%>
 <%@page import="post.PostDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,7 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/Style.css"/>
-<title>Covid-19 Web 게시판</title>
+<title>Covid-19 백신 예방 접종 센터</title>
 <style>
 nav{
 		/*background-color:#DFEBF2;*/
@@ -118,58 +120,56 @@ table>thead>{background-color: #84A4BF;}
 	
 	<!-- 게시판 메인 페이지 영역 시작 -->
 	<div class="container mt-3">
-	<h2 style="color: #F2B705">희망 메시지</h2>
+	<h2 style="color: #F2B705">백신 예방 접종 센터</h2>
+	<form method="get" action="vaccineInfo.jsp">
+	<b>카테고리| 지역</b>
+	<select name="addr">
+		<option value="서울">서울</option>
+		<option value="경기도">경기도</option>
+		<option value="강원도">강원도</option>
+		<option value="세종">세종</option>
+		<option value="인천">인천</option>
+		<option value="대전">대전</option>
+		<option value="대구">대구</option>
+		<option value="울산">울산</option>
+		<option value="광주">광주</option>
+		<option value="경상">경상도</option>
+		<option value="전라">전라도</option>
+		<option value="충청">충청도</option>
+		<option value="제주">제주도</option>
+		
+	</select>
+	<input class="btn btn-info ml-2" type="submit" value="선택">
+	</form>
 	<hr class="hr-style">
 		<div class="row">
 			<table class="table table-hover" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr style="background-color: #84A4BF; text-align: center;">
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
+						<th>센터명</th>
+						<th>시설명</th>
+						<th>주소</th>
+						<th>전화번호</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
-						PostDAO pd = new PostDAO(); // 인스턴스 생성
-						ArrayList<Post> list =pd.getList(pageNumber);
-						for(int i = 0; i < list.size(); i++){
-					%>
+						VaccineDAO vd = new VaccineDAO();
+						String local = request.getParameter("addr");
+						ArrayList<Vaccine> list= vd.select(local);
+				
+						for(int i=0; i< list.size();i++){ %>
 					<tr>
-						<td><%= list.get(i).getPostID() %></td>
-						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td><a href="./view/view.jsp?postID=<%= list.get(i).getPostID() %>">
-							<%= list.get(i).getPostTitle() %></a></td>
-						<td><%= list.get(i).getUserID() %></td>
-						<td><%= list.get(i).getPostDate().substring(0, 11) + list.get(i).getPostDate().substring(11, 13) + "시"+" "
-							+ list.get(i).getPostDate().substring(14, 16) + "분" %></td>
+						<td><%=list.get(i).getCenterName() %></td>
+						<td><%=list.get(i).getFacility()%></td>
+						<td><%=list.get(i).getAddr() %></td>
+						<td><%=list.get(i).getTel() %></td>
 					</tr>
-					<%
-						}
-					%>
+					<%} %>
 				</tbody>
 			</table>
 			
-			<!-- 페이징 처리 영역 -->
-			<%
-				if(pageNumber != 1){
-			%>
-				<a href="post.jsp?pageNumber=<%=pageNumber - 1 %>"
-					class="btn btn-success btn-arraw-left">이전</a>
-			<%
-				}if(pd.nextPage(pageNumber + 1)){
-			%>
-				<a href="post.jsp?pageNumber=<%=pageNumber + 1 %>"
-					class="btn btn-success btn-arraw-left">다음</a>
-			<%
-				}
-			%>
-			
-			<!-- 글쓰기 버튼 생성 -->
-			
 		</div>
-		<div class="form-row float-right"><a href="writer.jsp" class="btn btn-primary pull-right" style="float: right;">글쓰기</a></div>
 	</div>
 	<!-- 게시판 메인 페이지 영역 끝 -->
 </body>

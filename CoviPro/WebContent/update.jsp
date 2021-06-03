@@ -53,6 +53,9 @@
   		<li class="nav-item">
       		<a class="nav-link" href="main.jsp">메인</a>
     	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="vaccineInfo.jsp">백신접종</a>
+    	</li>
     	<li class="nav-item active">
       		<a class="nav-link" href="post.jsp">게시판</a>
     	</li>

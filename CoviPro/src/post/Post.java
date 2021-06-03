@@ -7,6 +7,11 @@ public class Post {
 	private String postDate;
 	private String postContent;
 	private int postAvailable;
+	
+	
+	public Post() {
+		super();
+	}
 	public int getPostID() {
 		return postID;
 	}
