@@ -21,12 +21,24 @@ public class CoviDataDAO {
 		try {
 			Class.forName(DBInfo.mysql_class);
 			conn=DriverManager.getConnection(DBInfo.mysql_url,DBInfo.mysql_id,DBInfo.mysql_pw);
-			
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				CoviData data = new CoviData();
+				data.setAddr(rs.getString("addr"));
+				data.setAddrcount(rs.getInt("addrCount"));
+				list.add(data);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		finally {
-			
+			try{
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
 		}
 		return list;
 	}

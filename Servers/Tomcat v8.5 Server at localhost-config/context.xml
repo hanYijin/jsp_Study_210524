@@ -25,4 +25,13 @@
     <!--
     <Manager pathname="" />
     -->
+    <Resource name="jdbc/stuJSP"
+    		  auth="container"
+    		  type="javax.sql.DataSource"
+    		  driverClassName="com.mysql.cj.jdbc.Driver"
+    		  username="root"
+    		  passWord="dlwls2955"
+    		  url="jdbc:mysql://localhost:3306/stuJSP"
+    		  maxWait="5000"
+    />
 </Context>

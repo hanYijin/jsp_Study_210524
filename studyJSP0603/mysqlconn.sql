@@ -16,3 +16,9 @@ create table test(
 show tables;
 
 select * from member;
+
+update member set name= "dfkjadkf", pw="dfdf" where id="aa";
+
+SELECT User, Host, plugin FROM mysql.user;
+update user set plugin='mysql_native_password' where user='root';
+update user set password=PASSWORD("dlwls2955") where user='root';
