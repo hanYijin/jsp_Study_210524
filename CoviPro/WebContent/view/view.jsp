@@ -123,7 +123,41 @@
 				}
 			%>
 		</div>
+			<form method="post" action="../Action/commentAction.jsp">
+				<table class="table table-hover" style="text-align: center; border: 1px solid=#dddddd;" >
+					<thead>
+						<tr>
+							<th colspan="2" style="background-color: #84A4BF; text-align: center;">댓글 남기기</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><textarea type="text" class="form-control" placeholder="댓글 남기기" name="commentcontent" maxlegth="100"></textarea></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<td><input type="submit" class="btn btn-primary pull-right" value="댓글 작성"></td>
+					</tfoot>
+				</table>
+			</form>
+		<div>
+			<table class="table table-hover" style="text-align: center; border: 2px solid=#dddddd;">
+				<thead>
+					<tr>
+						<th colspan="2" style="background-color: #84A4BF; text-align: center;">작성자</th>
+						<th colspan="3" style="background-color: #84A4BF; text-align: center;">댓글</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td Style="width:20%;">작성자</td>
+						<td colspan="2"><%=post.getPostTitle().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %>
+						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="../Action/deletecomment.jsp?postID=<%=postID%>" class="float-right text-danger">삭제</a></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-
 </body>
 </html>

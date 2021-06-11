@@ -18,7 +18,7 @@ public class VaccineDAO {
 	
 	public ArrayList<Vaccine> select(String addr){
 		ArrayList<Vaccine> list = new ArrayList<Vaccine>();
-		String sql="select * from JSP.vaccine where addr like '"+addr+"%'";
+		String sql="select * from covibbs.vaccine where addr like '"+addr+"%'";
 		try {
 			Class.forName(DBInfo.mysql_class);
 			conn=DriverManager.getConnection(DBInfo.mysql_url,DBInfo.mysql_id,DBInfo.mysql_pw);
@@ -27,7 +27,7 @@ public class VaccineDAO {
 			while(rs.next()) {
 				Vaccine data = new Vaccine();
 				data.setIdx(rs.getInt("idx"));
-				data.setCentertype(rs.getString("centertype"));
+				data.setCentertype(rs.getString("type"));
 				data.setCenterName(rs.getString("centerName"));
 				data.setOperation(rs.getString("operation"));
 				data.setFacility(rs.getString("facility"));

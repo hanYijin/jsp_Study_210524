@@ -37,6 +37,9 @@
     	<li class="nav-item">
       		<a class="nav-link" href="survey.jsp">설문조사</a>
     	</li>
+    	<li class="nav-item">
+      		<a class="nav-link" href="map.jsp">지도</a>
+    	</li>
     </ul>
 	<!-- 로그인 안될시에 보이는 화면 -->
     <%
